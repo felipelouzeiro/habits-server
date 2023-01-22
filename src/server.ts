@@ -6,9 +6,7 @@ const app = Fastify();
 const prisma = new PrismaClient();
 
 // Configura mecanismo de segurança CORS
-app.register(cors, {
-  origin: 'http://localhost:3000',
-});
+app.register(cors);
 
 app.get('/', async () => {
   const habits = await prisma.habit.findMany();
